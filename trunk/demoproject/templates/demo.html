@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<title>demo</title>
-	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css"> 
+	<link rel="stylesheet" type="text/css" href="/site_media/css/reset-fonts-grids.css"> 
 	<style type="text/css">
 	
 	body{
@@ -34,7 +34,10 @@
 		padding-bottom:.6em;
 		border-bottom: 1px solid #999;
 	}
+
+	{%if style %}
 		{%highlight_css style%}
+	{%endif %}
 	</style>
 
 
@@ -71,7 +74,9 @@
 			<p><input type="submit" value="Continue &rarr;"></p>
 		</form>	
 		</div>
+{%if code%}
 		<div class="hd">Simple:</div>
+
 
 		<div class="bd">
 		{%highlight code syntax%}
@@ -87,6 +92,7 @@
 		<div class="bd">
 		{%highlight_inline code syntax%}
 		</div>
+{%endif%}
 	</div>
 	<div id="ft">
 
