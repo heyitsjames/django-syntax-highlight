@@ -1,0 +1,98 @@
+{%load syntax%}
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>demo</title>
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css"> 
+	<style type="text/css">
+	
+	body{
+		font-family: Georgia;
+	}
+	
+	h1{
+		font-size: 197%;
+		text-align: center;
+		}
+	#hd{
+		height:3em;
+		padding-top:.9em;
+	}
+	
+	label{
+		font-size:108%;
+	}
+	div.hd{
+		heigth:3em;
+		padding-top:1em;
+	}
+	form table td{
+		padding:.3em;
+	}
+	#form_holder
+	{
+		padding-bottom:.6em;
+		border-bottom: 1px solid #999;
+	}
+		{%highlight_css style%}
+	</style>
+
+
+</head>
+<body>
+
+<div id="doc4">					
+	<div id="hd">
+		<h1>Demo</h1>
+	</div>
+	<div id="bd">
+		<div id="form_holder">
+		<form action="." method="post" accept-charset="utf-8">
+			<table border="0" cellspacing="5" cellpadding="5">
+				<tr><td><label for="code_input">Code: </label></td><td><textarea id="code_input" name="code" rows="16" cols="120"></textarea></td></tr>
+				<tr><td><label for="syntax_select">Syntax: </label></td><td>
+				<select id="syntax_select" name="syntax">
+					<option value="">Guess</option>
+					{% for syntax in syntaxes %}
+						<option value={{syntax|lower}}>{{syntax}}</option>
+					{% endfor %}
+				</select></td></tr>
+				<tr><td><label for="style_select">Style: </label>
+				</td><td>	<select id="style_select" name="style">
+
+						{% for style in styles %}
+							<option value={{style}}>{{style}}</option>
+						{% endfor %}
+					</select>
+				</td></tr>
+			</table>
+
+
+			<p><input type="submit" value="Continue &rarr;"></p>
+		</form>	
+		</div>
+		<div class="hd">Simple:</div>
+
+		<div class="bd">
+		{%highlight code syntax%}
+		</div>
+
+
+		<div class="hd">Linenumbers in table:</div>
+		<div class="bd">
+		{%highlight_table code syntax%}
+		</div>
+
+		<div class="hd">Inline linenumbers:</div>
+		<div class="bd">
+		{%highlight_inline code syntax%}
+		</div>
+	</div>
+	<div id="ft">
+
+	</div>
+</div>
+
+
+</body>
+</html>
