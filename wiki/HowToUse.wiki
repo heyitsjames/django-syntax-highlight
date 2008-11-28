@@ -1,0 +1,8 @@
+#summary Usage instructions for syntax_highlight.
+
+= How to use it =
+
+First install the Pygments library.
+easy_install Pygments
+
+Put the syntax_highlight folder somewhere in your PYTHONPATH.
